@@ -4,6 +4,7 @@
 #include <iostream>
 #include <mutex>
 #include <thread>
+#include <vector>
 
 class BoundedQueue{
     std::deque<int>q; std::size_t cap; bool done=false;
