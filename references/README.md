@@ -1,15 +1,5 @@
 # Primary references
 
-Prefer primary documentation when validating behavior:
+Validate behavior against primary documentation: NVIDIA CUDA Programming Guide, CUDA Best Practices Guide, Nsight Systems, Nsight Compute, PyTorch, Triton, ONNX/ONNX Runtime, TensorRT, and NCCL documentation as applicable.
 
-- NVIDIA CUDA Programming Guide
-- NVIDIA CUDA C++ Best Practices Guide
-- NVIDIA Nsight Systems documentation
-- NVIDIA Nsight Compute documentation
-- PyTorch documentation
-- Triton documentation
-- ONNX and ONNX Runtime documentation
-- NVIDIA TensorRT documentation
-- NVIDIA NCCL documentation
-
-Record the documentation version/date when a behavior is version-sensitive.
+Record version/date when behavior is version-sensitive.
