@@ -1,53 +1,35 @@
-# systems-parallel-computing-labs
+# Systems & Parallel Computing Labs
 
-Build systems foundations for performance engineering: parallel decomposition, synchronization, locality, false sharing, affinity, and NUMA.
+Hands-on systems performance labs for concurrency, scaling, synchronization, cache locality, false sharing, CPU affinity, and NUMA.
 
-This repository follows a **learn-by-example** progression:
+## Learn by example
 
-> concept → runnable example → correctness → measurement → profiling → diagnosis → optimization → validation → project
+`concept → runnable example → correctness → benchmark → profile → diagnose → optimize → validate`
 
-## Basics coverage
-Performance fundamentals; CPU & memory; Amdahl's Law; concurrency; synchronization; cache locality; NUMA; evidence-driven diagnosis.
-
-## Learning order
-1. CPU serial vs parallel sum
-2. Amdahl scaling
-3. race condition
-4. mutex vs atomic
-5. false sharing
+### Practical sequence
+1. Serial vs parallel sum
+2. Amdahl's Law scaling
+3. Intentional race condition
+4. Mutex vs atomic counter
+5. False sharing vs padded counters
 6. NUMA first-touch
-7. CPU affinity/locality
+7. CPU affinity and locality
 
-## Repository layout
-- `fundamentals/` — concise mechanism notes and tiny demonstrations
-- `examples/` — runnable examples in learning order
-- `tests/` — deterministic and randomized correctness checks
-- `benchmarks/` — repeatable measurement harnesses
-- `profiling/` — profiler commands and evidence instructions
-- `optimizations/` — baseline → hypothesis → change → re-measure studies
-- `exercises/` — beginner through challenge tasks
-- `mini-projects/` — integrated practice
-- `advanced-projects/` — portfolio-grade work
-- `docs/` — deeper explanations and decision records
-- `scripts/` — setup/environment helpers
-- `references/` — primary-source references
+## Build
 
-## Working rules
-1. Establish correctness before performance work.
-2. Define the measurement boundary.
-3. Warm up before steady-state measurements.
-4. Repeat measurements and report median plus spread.
-5. Profile before optimizing.
-6. Change one major variable at a time.
-7. Re-run correctness checks after every optimization.
-8. Never commit invented benchmark numbers; record actual environment metadata.
-
-## Environment
 ```bash
-bash scripts/check_environment.sh
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+cmake --build build -j
+./build/systems_lab sum 50000000 1
+./build/systems_lab sum 50000000 8
+./build/systems_lab counter 8 1000000
+./build/systems_lab false-sharing 8 10000000
 ```
 
-GPU examples require compatible NVIDIA hardware/software. Hardware-dependent work is explicitly marked rather than simulated.
+Run correctness smoke tests with `ctest --test-dir build --output-on-failure`.
 
-## Completion standard
-A topic is complete only when you can explain the mechanism, run/build the example, validate correctness, measure it correctly, interpret relevant profiler evidence, and explain the trade-offs.
+NUMA-specific work is in `examples/numa_first_touch.cpp` and requires Linux/libnuma. See `docs/performance-cpu-memory-foundations.md`.
+
+## Evidence rules
+
+Record CPU model, core/thread topology, compiler/version, build flags, input size, thread count, warm-up policy, repetitions, median/spread, and profiler evidence. Do not commit invented performance numbers.
