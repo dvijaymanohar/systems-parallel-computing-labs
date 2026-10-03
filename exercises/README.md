@@ -1,17 +1,13 @@
 # Exercises
 
-For each example, progress through four levels.
-
 ## Beginner
-Run the example, explain the mechanism in your own words, and change one harmless parameter.
+Run each example, explain the mechanism, then change one harmless parameter and predict the effect.
 
 ## Intermediate
-Re-implement the example without copying the solution. Add correctness checks and a benchmark.
+Re-implement without copying the solution. Add correctness checks and a benchmark.
 
 ## Advanced
-Profile the implementation, identify a real bottleneck, apply one justified optimization, and re-run correctness tests.
+Profile the implementation, identify a bottleneck, apply one justified optimization, and re-run tests.
 
 ## Challenge
-Generalize the workload, compare at least two implementation strategies, and document where each strategy wins or loses.
-
-Keep experiment notes beside the code so conclusions remain reproducible.
+Generalize the workload, compare at least two strategies, and document where each wins or loses.
