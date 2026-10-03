@@ -1,68 +1,36 @@
-# Prerequisites
-*.d
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+dist/
+*.egg-info/
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Linker files
-*.ilk
-
-# Debugger Files
-*.pdb
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-*.so.*
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
-
-# Build directories
+# C/C++ / CUDA
 build/
 Build/
-build-*/
-
-# CMake generated files
 CMakeFiles/
 CMakeCache.txt
 cmake_install.cmake
 Makefile
-install_manifest.txt
 compile_commands.json
+*.o
+*.obj
+*.so
+*.a
+*.out
 
-# Temporary files
-*.tmp
-*.log
-*.bak
-*.swp
+# Profiler and benchmark outputs
+*.nsys-rep
+*.qdrep
+*.ncu-rep
+profiles/
+results/*.csv
+results/*.json
+results/*.txt
 
-# vcpkg
-vcpkg_installed/
-
-# debug information files
-*.dwo
-
-# test output & cache
-Testing/
-.cache/
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
